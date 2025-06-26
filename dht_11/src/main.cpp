@@ -34,8 +34,9 @@ void setup()
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
             {
-    String html = "<!DOCTYPE html><html><head><title>DHT11 Data</title></head><body>";
-    html += "<h1>Recent Measurements</h1><table border='1'><tr><th>Temperature (°C)</th><th>Humidity (%)</th></tr>";
+    String html = "<!DOCTYPE html><html><head><title>DHT11 Data</title></head><body width=\"500\"><img src=\"https://i.imgur.com/FCNHnZH.png\" width=\"500\">";
+;
+    html += "<h1>Sensor Values</h1><table border='1'><tr><th>Temperature (°C)</th><th>Humidity (%)</th></tr>";
     for (size_t i = 0; i < temperatureData.size(); ++i) {
       html += "<tr><td>" + String(temperatureData[i]) + "</td><td>" + String(humidityData[i]) + "</td></tr>";
     
