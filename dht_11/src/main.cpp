@@ -13,8 +13,8 @@ using namespace std;
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char ssid[] = "Burak";
-const char password[] = "Sagunay1223";
+const char ssid[] = "Wifi_Name";
+const char password[] = "Wifi_Password";
 
 AsyncWebServer server(80);
 
