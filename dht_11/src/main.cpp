@@ -13,8 +13,8 @@ using namespace std;
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char ssid[] = "Wifi_Name";
-const char password[] = "Wifi_Password";
+const char ssid[] = "Burak";
+const char password[] = "Sagunay1223";
 
 AsyncWebServer server(80);
 
@@ -34,17 +34,16 @@ void setup()
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
             {
-    String html = "<!DOCTYPE html><html><head><title>DHT11 Data</title></head><body width=\"500\"><img src=\"https://i.imgur.com/FCNHnZH.png\" width=\"500\">";
+    String html = "<!DOCTYPE html><html><head><title>DHT11 Data</title><style>* { color: white; }</style></head><body style=\"background-color: black;\"><div style=\"display:flex; gap: 1rem;\">";
 ;
-    html += "<h1>Sensor Values</h1><table border='1'><tr><th>Temperature (°C)</th><th>Humidity (%)</th></tr>";
+    html += "<div><h1>Sensor Values</h1><table border='1'><tr><th>Temperature (°C)</th><th>Humidity (%)</th></tr>";
     for (size_t i = 0; i < temperatureData.size(); ++i) {
       html += "<tr><td>" + String(temperatureData[i]) + "</td><td>" + String(humidityData[i]) + "</td></tr>";
     
     }
-    html += "</table></body></html>";
+    html += "</table></div><img src=\"https://i.imgur.com/FCNHnZH.png\" width=\"500\"></div></body></html>";
     request->send(200, "text/html", html); });
   server.begin();
-  
 }
 void loop()
 {
